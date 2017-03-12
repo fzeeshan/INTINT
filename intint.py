@@ -47,6 +47,7 @@ class IntInt:
             st = converter.convert()
             self.updatesource(source)
             return st
+        self.updatesource(source)
         return -1
 
 
@@ -125,10 +126,7 @@ class IntConvert:
 
 
 def main():
-    # some inputs like filenames and table names before going fully autonomous
-    # KS2 fact
-    e = Extractor()
-    e.read_e0_table('E0_SMR_KS', '\\\\snh.ru\\go\\Exchange\\NSI\\PP\\fks2.csv')
+    IntInt()
 
 if __name__ == "__main__":
     # execute only if run as a script
