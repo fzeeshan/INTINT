@@ -18,13 +18,16 @@ class IntInt:
         )
         self.db = pypyodbc.connect(self.connStr)
         self.cursor = self.db.cursor()
-        self.intqueue = []  # queue is a list of dictionaries like: Id,Sort,Source,Target,SourceFormat,TargetFormat,Status,Size
+        self.intqueue = []  # queue is a list of sources represented by dictionaries like: Id,Sort,Source,Target,SourceFormat,TargetFormat,Status,Size
         self.readsources()
         self.intqueue.reverse()
 
 
-    def readmeta(self):
+    def readmeta(self, source):
         """Read metadata definition for format conversion for source->target"""
+        return
+
+    def updatesource(self, source):
         return
 
     def readsources(self):
@@ -42,6 +45,7 @@ class IntInt:
         if context:
             converter = IntConvert()
             st = converter.convert()
+            self.updatesource(source)
             return st
         return -1
 
